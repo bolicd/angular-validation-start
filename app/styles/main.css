@@ -59,6 +59,14 @@ body {
   margin-top: 28px;
 }
 
+.form-group .ng-invalid {
+  background-color: red;
+}
+
+.form-group .ng-valid {
+  background-color: lightgreen;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

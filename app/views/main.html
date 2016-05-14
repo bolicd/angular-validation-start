@@ -1,3 +1,49 @@
 <div class="container">
-  Form goes here
+    <div class="col-md-6">
+      <form id="locationsForm" name="locationsForm" ng-submit="processForm()" novalidate>
+        <div class="form-group">
+          <label>City: ( required and 2 - 255 chars) </label>
+          <input type="text" name="city" class="form-control" ng-model="city"
+                 required ng-minlength="2" ng-maxlength="255">
+          <div class="help-block" ng-messages="locationsForm.city.$error" >
+            <p ng-message="required">Field is required</p>
+            <p ng-message="minlength">Field must have at least 2 chars</p>
+            <p ng-message="maxlength">Field must have less than 255 chars</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>City Homepage:</label>
+          <input type="url" name="cityurl" class="form-control" ng-model="cityurl">
+          <div class="help-block" ng-messages="locationsForm.cityurl.$error">
+            <p ng-message="url">Invalid URL</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>City Latitude(in radians):</label>
+          <input type="text" name="latitude" class="form-control"
+                 data-coordtype="latitude"
+                 ng-model="latitude" coordinates-validations data-coordtype="latitude" required>
+          <div class="help-block" ng-messages="locationsForm.latitude.$error">
+            <p ng-message="required">Field is required</p>
+            <p ng-message="validNum">Invalid latitude</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>City Longitude(in radians):</label>
+          <input type="text" name="longitude" class="form-control"
+                 data-coordtype="longitude"
+                 ng-model="longitude" coordinates-validations data-coordtype="longitude" required>
+          <div class="help-block" ng-messages="locationsForm.longitude.$error">
+            <p ng-message="validNum">Invalid longitude</p>
+            <p ng-message="required">Field is required</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
